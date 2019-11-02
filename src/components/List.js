@@ -1,11 +1,11 @@
 import React from 'react';
-// import Card from './Card.js';
+import Card from './Card.js';
 
 
 
 
 function List(props) {
-   
+   console.log(props.cards);
 
      
     return (
@@ -13,11 +13,14 @@ function List(props) {
             <header className="List-header">
                 <h2>{ props.header }</h2>
             </header>
-            {/* <div className="List-cards">
-              <Card title={props.cards.title}
-               content={props.cards.content} 
-               key={props.cards.id}/>
-            </div>     */}
+            <div className="List-cards">
+            {props.cards.map(card =>(  
+              <Card title={card.title}
+               content={card.content} 
+                key={card.id}/>
+            ))}
+        
+            </div>    
     </section>
             );
           }
