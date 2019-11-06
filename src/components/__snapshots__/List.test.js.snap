@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list hasn't been ruined 1`] = `
+<section
+  className="List"
+>
+  <header
+    className="List-header"
+  >
+    <h2 />
+  </header>
+  <div
+    className="List-cards"
+  />
+</section>
+`;
