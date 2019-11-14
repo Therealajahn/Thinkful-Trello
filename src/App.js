@@ -1,5 +1,4 @@
 import React from 'react';
-
 import List from './components/List.js';
 import './style.css';
 
@@ -45,6 +44,7 @@ class App extends React.Component {
       'm': { id: 'm', title: 'Thirteenth card', content: 'lorem ipsum' },
     },
   }
+  // all I need to do is find out what list is clicked and what card is clicked to delete it
 
   makeLists = () => {
     return (
@@ -53,29 +53,29 @@ class App extends React.Component {
         <List
         key = {list.id}
         listId = {list.id}
+// I make a new attribute to pass down to Card.js otherwise it throws an error        
         header = {list.header}
         cards={list.cardIds.map(id => this.state.allCards[id])}
         deleteCard = {this.deleteCard}
+// I pass down the method to delete cards        
         />))
     )
   }
 
-  // getId = (listId, cardToDelete) => {
-  //   const deleteFrom = this.state.lists.filter(list =>
-  //     list.id === listId  
-  //   );
-  //   deleteCard(deleteFrom, cardToDelete)
-  // }
 
   deleteCard = (deleteFrom, cardToDelete) => {
+    //set list ID as "deleteFrom" and card ID as "cardToDelete"
     this.setState({
     lists: this.state.lists.map((list) =>{
-      
-      if(list.id === deleteFrom){
+    // I need to render all the lists uneffected except the clicked one  
+      if(list.id === deleteFrom){   
         const newList = {
             id: list.id,
             header: list.header,
             cardIds: list.cardIds.filter(card => card !== cardToDelete),
+    // if the current list is the one clicked, it's replaced with one that is 
+    // identical except its cardIds array is filtered for the card that has been
+    // clicked, deleting it        
         }
         return newList;
       }

@@ -19,7 +19,9 @@ function List(props) {
                 content={card.content} 
                 key={card.id}
                 cardId = {card.id}
+                //make another prop Card.js or it throws error
                 deleteCard = {props.deleteCard}
+                // pass method                
                 listId={props.listId}/>
             ))}
         
