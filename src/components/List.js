@@ -16,8 +16,11 @@ function List(props) {
             <div className="List-cards">
             {props.cards.map(card =>(  
               <Card title={card.title}
-               content={card.content} 
-                key={card.id}/>
+                content={card.content} 
+                key={card.id}
+                cardId = {card.id}
+                deleteCard = {props.deleteCard}
+                listId={props.listId}/>
             ))}
         
             </div>    
